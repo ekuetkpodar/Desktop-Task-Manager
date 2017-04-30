@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import edu.westga.cs1302.task_manager.model.Agenda;
+import edu.westga.cs1302.task_manager.model.PriorityOrder;
 import edu.westga.cs1302.task_manager.model.Task;
 
 public class AgendaIncompleteTasks {
@@ -19,7 +20,8 @@ public class AgendaIncompleteTasks {
 	@Test
 	public void AgendaIncompleteTasksIsEmpty() {
 		Task school = new Task("Study");
-		Agenda agenda = new Agenda();
+		ArrayList<Task> itr = new ArrayList<Task>();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		ArrayList<Task> test = null;
 
 		assertEquals(test, agenda.incompleteTasks());
@@ -31,7 +33,8 @@ public class AgendaIncompleteTasks {
 	public void AgendaIncompleteTasksOneInCompleteTask() {
 		Task school = new Task("Study");
 		school.setCompleted(true);
-		Agenda agenda = new Agenda();
+		ArrayList<Task> itr = new ArrayList<Task>();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 
 		ArrayList<Task> test = new ArrayList<Task>();
@@ -45,7 +48,8 @@ public class AgendaIncompleteTasks {
 	public void AgendaIncompleteTasksOneCompleteTask() {
 		Task school = new Task("Study");
 		school.setCompleted(false);
-		Agenda agenda = new Agenda();
+		ArrayList<Task> itr = new ArrayList<Task>();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 
 		ArrayList<Task> test = new ArrayList<Task>();
@@ -65,8 +69,9 @@ public class AgendaIncompleteTasks {
 		school.setCompleted(false);
 		school2.setCompleted(false);
 		school3.setCompleted(false);
+		ArrayList<Task> itr = new ArrayList<Task>();
 
-		Agenda agenda = new Agenda();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		agenda.addTask(school2);
 		agenda.addTask(school3);
@@ -90,8 +95,8 @@ public class AgendaIncompleteTasks {
 		school.setCompleted(true);
 		school2.setCompleted(false);
 		school3.setCompleted(true);
-
-		Agenda agenda = new Agenda();
+		ArrayList<Task> itr = new ArrayList<Task>();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		agenda.addTask(school2);
 		agenda.addTask(school3);
@@ -113,8 +118,9 @@ public class AgendaIncompleteTasks {
 		school.setCompleted(true);
 		school2.setCompleted(true);
 		school3.setCompleted(false);
+		ArrayList<Task> itr = new ArrayList<Task>();
 
-		Agenda agenda = new Agenda();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		agenda.addTask(school2);
 		agenda.addTask(school3);
@@ -126,5 +132,4 @@ public class AgendaIncompleteTasks {
 		assertEquals(test, agenda.incompleteTasks());
 
 	}
-
 }

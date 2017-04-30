@@ -2,11 +2,14 @@ package edu.westga.cs1302.task_manager.test.Agenda;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import edu.westga.cs1302.task_manager.model.Agenda;
+import edu.westga.cs1302.task_manager.model.PriorityOrder;
 import edu.westga.cs1302.task_manager.model.Task;
 
 public class AgendaAddTask {
@@ -17,7 +20,8 @@ public class AgendaAddTask {
 	@Test
 	public void AgendaAddTaskIsInvalid() {
 		Task school = null;
-		Agenda agenda = new Agenda();
+		ArrayList<Task> itr = new ArrayList<Task>();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		this.expected.expect(IllegalArgumentException.class);
 		agenda.addTask(school);
 		
@@ -27,7 +31,8 @@ public class AgendaAddTask {
 	@Test
 	public void AgendaAddTaskIsValid() {
 		Task school = new Task("Study");
-		Agenda agenda = new Agenda();
+		ArrayList<Task> itr = new ArrayList<Task>();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		int id = school.getId();
 		assertEquals(agenda.getTask(id),school);
@@ -40,7 +45,8 @@ public class AgendaAddTask {
 		Task school = new Task("Study");
 		Task school2 = new Task("Study 2");
 		Task school3 = new Task("Study 2");
-		Agenda agenda = new Agenda();
+		ArrayList<Task> itr = new ArrayList<Task>();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		agenda.addTask(school2);
 		agenda.addTask(school3);

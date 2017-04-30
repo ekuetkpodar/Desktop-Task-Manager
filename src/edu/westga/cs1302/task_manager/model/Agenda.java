@@ -1,6 +1,7 @@
 package edu.westga.cs1302.task_manager.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Create a Collection of Tasks
@@ -8,15 +9,24 @@ import java.util.ArrayList;
  * @author Ekue Kpodar
  *
  */
-public class Agenda {
+public class Agenda implements Iterable<Task> {
 	private ArrayList<Task> tasks;
+	private TaskIterator order;
 
 	/**
 	 * Create a Default Agenda
 	 * 
+	 * @param order
+	 *            The Sorting order
 	 */
-	public Agenda() {
+	public Agenda(TaskIterator order) {
+
+		if (order == null) {
+			throw new IllegalArgumentException("The order Is Invalid");
+		}
+
 		this.tasks = new ArrayList<Task>();
+		this.order = order;
 	}
 
 	/**
@@ -62,6 +72,16 @@ public class Agenda {
 	}
 
 	/**
+	 * Set Sorting Order
+	 * 
+	 * @param order
+	 *            the order to set
+	 */
+	public void setOrder(TaskIterator order) {
+		this.order = order;
+	}
+
+	/**
 	 * Get All The Tasks On The Agenda
 	 * 
 	 * @return All the Agenda
@@ -90,4 +110,17 @@ public class Agenda {
 			return taskIn;
 		}
 	}
+
+	/**
+	 * Get The iterator stored in this.order
+	 * 
+	 */
+	@Override
+	public Iterator<Task> iterator() {
+		this.order.setTasks(this.getAllTask());
+
+		return this.order;
+	}
+
 }
+

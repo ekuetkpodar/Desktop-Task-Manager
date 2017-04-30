@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import edu.westga.cs1302.task_manager.model.Agenda;
+import edu.westga.cs1302.task_manager.model.PriorityOrder;
 import edu.westga.cs1302.task_manager.model.Task;
 
 public class AgendaGetAllTasks {
 	
 	@Test
 	public void TestGetAllWhenListIsEmpty() {
-		Agenda agenda = new Agenda();
+		ArrayList<Task> itr = new ArrayList<Task>();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		
 		ArrayList<Task> task =new ArrayList<Task> ();
 	
@@ -26,7 +28,8 @@ public class AgendaGetAllTasks {
 	@Test
 	public void TestGetOnlyOneTaskOnTheList() {
 		Task school = new Task("Study");
-		Agenda agenda = new Agenda();
+		ArrayList<Task> itr = new ArrayList<Task>();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		ArrayList<Task> task =new ArrayList<Task> ();
 		task.add(school);
@@ -40,7 +43,8 @@ public class AgendaGetAllTasks {
 		Task school = new Task("Study");
 		Task school2 = new Task("Study 2");
 		Task school3 = new Task("Study 2");
-		Agenda agenda = new Agenda();
+		ArrayList<Task> itr = new ArrayList<Task>();
+		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		agenda.addTask(school2);
 		agenda.addTask(school3);
