@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import edu.westga.cs1302.task_manager.model.Serializer;
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 import edu.westga.cs1302.task_manager.model.TaskPriority;
 
 public class serializeAColletion {
@@ -19,7 +19,7 @@ public class serializeAColletion {
 
 	@Test
 	public void serializeAColletionWithAInvalidTask() {
-		ArrayList<Task>task = null;
+		ArrayList<SimpleTask>task = null;
 		Serializer print = new Serializer();
 		this.expected.expect(IllegalArgumentException.class);
 		print.serializeAColletion(task);
@@ -30,9 +30,9 @@ public class serializeAColletion {
 	public void serializeAColletionWithOneTaskiNCollection() {
 		
 		String output = "*************Task Beginning*************" + "\n";
-		Task school = new Task("Read",TaskPriority.HIGH, LocalDate.of(2017, 12, 31),500);
+		SimpleTask school = new SimpleTask("Read",TaskPriority.HIGH, LocalDate.of(2017, 12, 31),500);
 		
-		ArrayList<Task> collection = new ArrayList<Task> ();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask> ();
 		collection.add(school);
 		Serializer print = new Serializer();
 		String test = "Read"+"\t"+school.getId()+"\t"+TaskPriority.HIGH+"\t"+ LocalDate.of(2017, 12, 31)+"\t"+500+"\t";
@@ -46,10 +46,10 @@ public class serializeAColletion {
 	public void serializeAColletionWithTwoTaskiNCollection() {
 		
 		String output = "*************Task Beginning*************" + "\n";
-		Task school = new Task("Read",TaskPriority.HIGH, LocalDate.of(2017, 12, 31),500);
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
+		SimpleTask school = new SimpleTask("Read",TaskPriority.HIGH, LocalDate.of(2017, 12, 31),500);
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
 		
-		ArrayList<Task> collection = new ArrayList<Task> ();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask> ();
 		collection.add(school);
 		collection.add(work);
 		Serializer print = new Serializer();
@@ -66,11 +66,11 @@ public class serializeAColletion {
 	public void serializeAColletionWithThreeTaskiNCollection() {
 		
 		String output = "*************Task Beginning*************" + "\n";
-		Task school = new Task("Read",TaskPriority.HIGH, LocalDate.of(2017, 12, 31),500);
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
-		Task other = new Task("games", TaskPriority.LOW, LocalDate.of(2018, 12, 31), 50);
+		SimpleTask school = new SimpleTask("Read",TaskPriority.HIGH, LocalDate.of(2017, 12, 31),500);
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
+		SimpleTask other = new SimpleTask("games", TaskPriority.LOW, LocalDate.of(2018, 12, 31), 50);
 		
-		ArrayList<Task> collection = new ArrayList<Task> ();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask> ();
 		collection.add(school);
 		collection.add(work);
 		collection.add(other);

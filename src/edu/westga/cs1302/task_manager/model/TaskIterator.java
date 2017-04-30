@@ -12,8 +12,8 @@ import java.util.Iterator;
  * @author Ekue Kpodar
  *
  */
-public abstract class TaskIterator implements Iterator<Task> {
-	protected ArrayList<Task> tasks;
+public abstract class TaskIterator implements Iterator<SimpleTask> {
+	protected ArrayList<SimpleTask> tasks;
 	protected int index;
 
 	/**
@@ -22,8 +22,8 @@ public abstract class TaskIterator implements Iterator<Task> {
 	 * @param tasks
 	 *            Collection of Task
 	 */
-	public TaskIterator(ArrayList<Task> tasks) {
-		this.tasks = new ArrayList<Task>();
+	public TaskIterator(ArrayList<SimpleTask> tasks) {
+		this.tasks = new ArrayList<SimpleTask>();
 		this.tasks.addAll(tasks);
 		this.index = 0;
 	}
@@ -38,7 +38,7 @@ public abstract class TaskIterator implements Iterator<Task> {
 	/**Set The Tasks
 	 * @param tasks the tasks to set
 	 */
-	public void setTasks(ArrayList<Task> tasks) {
+	public void setTasks(ArrayList<SimpleTask> tasks) {
 		this.tasks.clear();
 		this.tasks.addAll(tasks);
 	}

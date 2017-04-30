@@ -9,8 +9,8 @@ import java.util.Iterator;
  * @author Ekue Kpodar
  *
  */
-public class Agenda implements Iterable<Task> {
-	private ArrayList<Task> tasks;
+public class Agenda implements Iterable<SimpleTask> {
+	private ArrayList<SimpleTask> tasks;
 	private TaskIterator order;
 
 	/**
@@ -25,7 +25,7 @@ public class Agenda implements Iterable<Task> {
 			throw new IllegalArgumentException("The order Is Invalid");
 		}
 
-		this.tasks = new ArrayList<Task>();
+		this.tasks = new ArrayList<SimpleTask>();
 		this.order = order;
 	}
 
@@ -39,12 +39,12 @@ public class Agenda implements Iterable<Task> {
 	 *            The Id
 	 * @return The Task Object
 	 */
-	public Task getTask(int id) {
+	public SimpleTask getTask(int id) {
 		if (id <= 0) {
 			throw new IllegalArgumentException("The Id is invalid");
 		}
 
-		for (Task current : this.tasks) {
+		for (SimpleTask current : this.tasks) {
 			if (current.getId() == id) {
 				return current;
 			}
@@ -63,7 +63,7 @@ public class Agenda implements Iterable<Task> {
 	 *            The task
 	 * 
 	 */
-	public void addTask(Task newTask) {
+	public void addTask(SimpleTask newTask) {
 		if (newTask == null) {
 			throw new IllegalArgumentException("The Task Is Invalid");
 		}
@@ -86,7 +86,7 @@ public class Agenda implements Iterable<Task> {
 	 * 
 	 * @return All the Agenda
 	 */
-	public ArrayList<Task> getAllTask() {
+	public ArrayList<SimpleTask> getAllTask() {
 		return this.tasks;
 	}
 
@@ -96,9 +96,9 @@ public class Agenda implements Iterable<Task> {
 	 * 
 	 * @return Get The List of Task Still need To be Preformed
 	 */
-	public ArrayList<Task> incompleteTasks() {
-		ArrayList<Task> taskIn = new ArrayList<Task>();
-		for (Task current : this.tasks) {
+	public ArrayList<SimpleTask> incompleteTasks() {
+		ArrayList<SimpleTask> taskIn = new ArrayList<SimpleTask>();
+		for (SimpleTask current : this.tasks) {
 			if (!current.isCompleted()) {
 				taskIn.add(current);
 			}
@@ -116,7 +116,7 @@ public class Agenda implements Iterable<Task> {
 	 * 
 	 */
 	@Override
-	public Iterator<Task> iterator() {
+	public Iterator<SimpleTask> iterator() {
 		this.order.setTasks(this.getAllTask());
 
 		return this.order;

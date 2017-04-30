@@ -16,7 +16,7 @@ public class PriorityOrder extends TaskIterator {
 	 * @param tasks
 	 *            The Collection of Task
 	 */
-	public PriorityOrder(ArrayList<Task> tasks) {
+	public PriorityOrder(ArrayList<SimpleTask> tasks) {
 		super(tasks);
 
 	}
@@ -29,9 +29,9 @@ public class PriorityOrder extends TaskIterator {
 	 * @see java.util.Iterator#next()
 	 */
 	@Override
-	public Task next() {
-		Task atask = this.tasks.get(0);
-		for (Task task : this.tasks) {
+	public SimpleTask next() {
+		SimpleTask atask = this.tasks.get(0);
+		for (SimpleTask task : this.tasks) {
 			if (atask.getPriority().compareTo(task.getPriority()) == -1) {
 				atask = atask;
 			} else if (atask.getPriority().compareTo(task.getPriority()) == 1) {
@@ -41,12 +41,12 @@ public class PriorityOrder extends TaskIterator {
 			}
 		}
 
-		Task send = atask;
+		SimpleTask send = atask;
 		this.tasks.remove(atask);
 		return send;
 	}
 
-	private Task samePriority(Task current, Task other) {
+	private SimpleTask samePriority(SimpleTask current, SimpleTask other) {
 		if (current.compareTo(other) == 1) {
 			return other;
 		} else if (current.compareTo(other) == -1) {

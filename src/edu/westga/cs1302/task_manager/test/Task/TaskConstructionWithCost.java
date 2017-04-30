@@ -8,7 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 import edu.westga.cs1302.task_manager.model.TaskPriority;
 
 public class TaskConstructionWithCost {
@@ -19,7 +19,7 @@ public class TaskConstructionWithCost {
 	public void TaskConstructionWithCostIsNegative() {
 	
 		this.expected.expect(IllegalArgumentException.class);
-		Task school = new Task("Studys",TaskPriority.HIGH,  LocalDate.of(2017, 12, 31),-9);
+		SimpleTask school = new SimpleTask("Studys",TaskPriority.HIGH,  LocalDate.of(2017, 12, 31),-9);
 		
 	}
 	
@@ -27,7 +27,7 @@ public class TaskConstructionWithCost {
 	public void TaskConstructionWithCostIsZero() {
 	
 		this.expected.expect(IllegalArgumentException.class);
-		Task school = new Task("Studys",TaskPriority.HIGH,  LocalDate.of(2017, 12, 31),0);
+		SimpleTask school = new SimpleTask("Studys",TaskPriority.HIGH,  LocalDate.of(2017, 12, 31),0);
 		
 	}
 	
@@ -35,7 +35,7 @@ public class TaskConstructionWithCost {
 	public void TaskConstructionWithCostIsValid() {
 	
 		String Stuff = "Do School Work";
-		Task school = new Task(Stuff,TaskPriority.HIGH, LocalDate.of(2017, 12, 31),500);
+		SimpleTask school = new SimpleTask(Stuff,TaskPriority.HIGH, LocalDate.of(2017, 12, 31),500);
 		assertEquals(500,school.getCost());
 		
 		

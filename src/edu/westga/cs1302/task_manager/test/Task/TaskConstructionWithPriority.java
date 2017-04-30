@@ -6,7 +6,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 import edu.westga.cs1302.task_manager.model.TaskPriority;
 
 public class TaskConstructionWithPriority {
@@ -20,7 +20,7 @@ public class TaskConstructionWithPriority {
 		TaskPriority priority = TaskPriority.HIGH;
 
 		this.expected.expect(IllegalArgumentException.class);
-		Task school = new Task(Stuff, priority);
+		SimpleTask school = new SimpleTask(Stuff, priority);
 
 	}
 
@@ -30,7 +30,7 @@ public class TaskConstructionWithPriority {
 		String Stuff = "Do School Work";
 		TaskPriority priority = TaskPriority.HIGH;
 
-		Task school = new Task(Stuff, priority);
+		SimpleTask school = new SimpleTask(Stuff, priority);
 		assertEquals(school.getDescription(), Stuff);
 
 		assertTrue(school != null);

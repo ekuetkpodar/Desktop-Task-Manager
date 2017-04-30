@@ -13,7 +13,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import edu.westga.cs1302.task_manager.model.Serializer;
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 import edu.westga.cs1302.task_manager.model.TaskPriority;
 
 public class serializeATask {
@@ -21,7 +21,7 @@ public class serializeATask {
 
 	@Test
 	public void serializeATaskWithAInvalidTask() {
-		Task task = null;
+		SimpleTask task = null;
 		Serializer print = new Serializer();
 		this.expected.expect(IllegalArgumentException.class);
 		print.serializeATask(task);
@@ -30,7 +30,7 @@ public class serializeATask {
 	
 	@Test
 	public void serializeATaskWithOnlyDescription() {
-		Task school = new Task("Read");
+		SimpleTask school = new SimpleTask("Read");
 		Serializer print = new Serializer();
 		String test = "Read"+"\t"+school.getId()+"\t";
 
@@ -39,7 +39,7 @@ public class serializeATask {
 	
 	@Test
 	public void serializeATaskWithPriority() {
-		Task school = new Task("Read",TaskPriority.HIGH);
+		SimpleTask school = new SimpleTask("Read",TaskPriority.HIGH);
 		Serializer print = new Serializer();
 		String test = "Read"+"\t"+school.getId()+"\t"+TaskPriority.HIGH+"\t";
 		assertEquals(test,print.serializeATask(school));
@@ -47,7 +47,7 @@ public class serializeATask {
 	
 	@Test
 	public void serializeATaskWithDate() {
-		Task school = new Task("Read",TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
+		SimpleTask school = new SimpleTask("Read",TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
 		Serializer print = new Serializer();
 		String test = "Read"+"\t"+school.getId()+"\t"+TaskPriority.HIGH+"\t"+ LocalDate.of(2017, 12, 31)+"\t";
 		assertEquals(test,print.serializeATask(school));
@@ -55,7 +55,7 @@ public class serializeATask {
 	
 	@Test
 	public void serializeATaskWithCost() {
-		Task school = new Task("Read",TaskPriority.HIGH, LocalDate.of(2017, 12, 31),500);
+		SimpleTask school = new SimpleTask("Read",TaskPriority.HIGH, LocalDate.of(2017, 12, 31),500);
 		Serializer print = new Serializer();
 		String test = "Read"+"\t"+school.getId()+"\t"+TaskPriority.HIGH+"\t"+ LocalDate.of(2017, 12, 31)+"\t"+500+"\t";
 		assertEquals(test,print.serializeATask(school));

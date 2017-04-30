@@ -8,7 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 import edu.westga.cs1302.task_manager.model.TaskPriority;
 
 public class TaskConstructionWithDate {
@@ -19,7 +19,7 @@ public class TaskConstructionWithDate {
 	public void testDescriptionIsInvalid() {
 	
 		this.expected.expect(IllegalArgumentException.class);
-		Task school = new Task("Studys",TaskPriority.HIGH, null);
+		SimpleTask school = new SimpleTask("Studys",TaskPriority.HIGH, null);
 		
 	}
 	
@@ -27,7 +27,7 @@ public class TaskConstructionWithDate {
 	public void testTaskIsValid() {
 	
 		String Stuff = "Do School Work";
-		Task school = new Task(Stuff,TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
+		SimpleTask school = new SimpleTask(Stuff,TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
 		assertEquals(school.getDescription(),Stuff);
 		assertEquals(LocalDate.of(2017, 12, 31),school.getDate());
 		assertTrue(school.getDate() != null);

@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import edu.westga.cs1302.task_manager.model.CostOrder;
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 import edu.westga.cs1302.task_manager.model.TaskPriority;
 
 public class CostOrderNext {
 
 	@Test
 	public void CostOrderNextOneTaskInCollection() {
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 
 		collection.add(school);
 
@@ -28,12 +28,12 @@ public class CostOrderNext {
 
 	@Test
 	public void CostOrderNextMiddleOfMany() {
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
 
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
-		Task play = new Task("games", TaskPriority.LOW, LocalDate.of(2018, 12, 31), 50);
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
+		SimpleTask play = new SimpleTask("games", TaskPriority.LOW, LocalDate.of(2018, 12, 31), 50);
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 		collection.add(play);
 		collection.add(school);
 		collection.add(work);
@@ -45,12 +45,12 @@ public class CostOrderNext {
 
 	@Test
 	public void CostOrderNextEndOfMany() {
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
 
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
-		Task play = new Task("games", TaskPriority.LOW, LocalDate.of(2018, 12, 31), 50);
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
+		SimpleTask play = new SimpleTask("games", TaskPriority.LOW, LocalDate.of(2018, 12, 31), 50);
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 		collection.add(play);
 
 		collection.add(work);
@@ -63,12 +63,12 @@ public class CostOrderNext {
 
 	@Test
 	public void CostOrderNextGetSecondTask() {
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
 
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
-		Task play = new Task("games", TaskPriority.LOW, LocalDate.of(2018, 12, 31), 50);
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
+		SimpleTask play = new SimpleTask("games", TaskPriority.LOW, LocalDate.of(2018, 12, 31), 50);
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 		collection.add(play);
 		collection.add(school);
 		collection.add(work);
@@ -81,12 +81,12 @@ public class CostOrderNext {
 
 	@Test
 	public void CostOrderNextGetThirdTask() {
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
 
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
-		Task play = new Task("games", TaskPriority.LOW, LocalDate.of(2018, 12, 31), 50);
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 250);
+		SimpleTask play = new SimpleTask("games", TaskPriority.LOW, LocalDate.of(2018, 12, 31), 50);
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 		collection.add(play);
 		collection.add(school);
 		collection.add(work);
@@ -100,11 +100,11 @@ public class CostOrderNext {
 
 	@Test
 	public void CostOrderNextWithSameCost() {
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31), 500);
 
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 500);
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31), 500);
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 		int id;
 		if (school.getId() > work.getId()) {
 			id = work.getId();

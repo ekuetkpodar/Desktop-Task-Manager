@@ -10,7 +10,7 @@ import org.junit.rules.ExpectedException;
 
 import edu.westga.cs1302.task_manager.model.Agenda;
 import edu.westga.cs1302.task_manager.model.PriorityOrder;
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 
 public class AgendaAddTask {
 
@@ -19,8 +19,8 @@ public class AgendaAddTask {
 
 	@Test
 	public void AgendaAddTaskIsInvalid() {
-		Task school = null;
-		ArrayList<Task> itr = new ArrayList<Task>();
+		SimpleTask school = null;
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		this.expected.expect(IllegalArgumentException.class);
 		agenda.addTask(school);
@@ -30,8 +30,8 @@ public class AgendaAddTask {
 	
 	@Test
 	public void AgendaAddTaskIsValid() {
-		Task school = new Task("Study");
-		ArrayList<Task> itr = new ArrayList<Task>();
+		SimpleTask school = new SimpleTask("Study");
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		int id = school.getId();
@@ -42,10 +42,10 @@ public class AgendaAddTask {
 	
 	@Test
 	public void AgendaAddTaskIsMany() {
-		Task school = new Task("Study");
-		Task school2 = new Task("Study 2");
-		Task school3 = new Task("Study 2");
-		ArrayList<Task> itr = new ArrayList<Task>();
+		SimpleTask school = new SimpleTask("Study");
+		SimpleTask school2 = new SimpleTask("Study 2");
+		SimpleTask school3 = new SimpleTask("Study 2");
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		agenda.addTask(school2);

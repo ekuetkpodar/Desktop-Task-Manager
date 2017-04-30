@@ -21,7 +21,7 @@ public class Serializer {
 	 *            the task
 	 * @return The Internal information stored in a task
 	 */
-	public String serializeATask(Task task) {
+	public String serializeATask(SimpleTask task) {
 		if (task == null) {
 			throw new IllegalArgumentException("Task Can't Be Null");
 		}
@@ -52,14 +52,14 @@ public class Serializer {
 	 *            the collection of task
 	 * @return The String format of every task within the Given Collection
 	 */
-	public String serializeAColletion(ArrayList<Task> task) {
+	public String serializeAColletion(ArrayList<SimpleTask> task) {
 		if (task == null) {
 			throw new IllegalArgumentException("Tasks Can't Be Null");
 		}
 
 		String output = "*************Task Beginning*************" + "\n";
 
-		for (Task current : task) {
+		for (SimpleTask current : task) {
 			output += this.serializeATask(current) + "\n";
 		}
 

@@ -15,7 +15,7 @@ public class CostOrder extends TaskIterator {
 	 * @param tasks
 	 *            The Collection of Task
 	 */
-	public CostOrder(ArrayList<Task> tasks) {
+	public CostOrder(ArrayList<SimpleTask> tasks) {
 		super(tasks);
 
 	}
@@ -28,9 +28,9 @@ public class CostOrder extends TaskIterator {
 	 * @see java.util.Iterator#next()
 	 */
 	@Override
-	public Task next() {
-		Task atask = this.tasks.get(0);
-		for (Task task : this.tasks) {
+	public SimpleTask next() {
+		SimpleTask atask = this.tasks.get(0);
+		for (SimpleTask task : this.tasks) {
 			if (task.getCost() > atask.getCost()) {
 				atask = task;
 			} else if (task.getCost() == atask.getCost()) {
@@ -38,13 +38,13 @@ public class CostOrder extends TaskIterator {
 			}
 		}
 
-		Task send = atask;
+		SimpleTask send = atask;
 		this.tasks.remove(atask);
 		return send;
 
 	}
 
-	private Task samePriority(Task current, Task other) {
+	private SimpleTask samePriority(SimpleTask current, SimpleTask other) {
 		if (current.compareTo(other) == 1) {
 			return other;
 		} else if (current.compareTo(other) == -1) {

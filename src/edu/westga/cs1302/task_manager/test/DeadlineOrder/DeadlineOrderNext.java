@@ -9,7 +9,7 @@ import org.junit.Test;
 
 
 import edu.westga.cs1302.task_manager.model.DeadlineOrder;
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 import edu.westga.cs1302.task_manager.model.TaskPriority;
 
 public class DeadlineOrderNext {
@@ -17,9 +17,9 @@ public class DeadlineOrderNext {
 	@Test
 	public void DeadlineOrderNextOnlyOneTask() {
 
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 		collection.add(school);
 		DeadlineOrder priority = new DeadlineOrder(collection);
 		assertEquals(school, priority.next());
@@ -29,12 +29,12 @@ public class DeadlineOrderNext {
 	@Test
 	public void DeadlineOrderNextInMiddle() {
 
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
 
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2016, 12, 31));
-		Task other = new Task("games", TaskPriority.LOW, LocalDate.of(2015, 12, 31));
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2016, 12, 31));
+		SimpleTask other = new SimpleTask("games", TaskPriority.LOW, LocalDate.of(2015, 12, 31));
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 
 		collection.add(work);
 		collection.add(school);
@@ -49,12 +49,12 @@ public class DeadlineOrderNext {
 	@Test
 	public void DeadlineOrderNextInTheEnd() {
 
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
 
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2016, 12, 31));
-		Task other = new Task("games", TaskPriority.LOW, LocalDate.of(2015, 12, 31));
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2016, 12, 31));
+		SimpleTask other = new SimpleTask("games", TaskPriority.LOW, LocalDate.of(2015, 12, 31));
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 
 		collection.add(work);
 
@@ -70,12 +70,12 @@ public class DeadlineOrderNext {
 	@Test
 	public void DeadlineOrderNextSecondCall() {
 
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
 
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2016, 12, 31));
-		Task other = new Task("games", TaskPriority.LOW, LocalDate.of(2015, 12, 31));
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2016, 12, 31));
+		SimpleTask other = new SimpleTask("games", TaskPriority.LOW, LocalDate.of(2015, 12, 31));
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 
 		collection.add(work);
 
@@ -92,12 +92,12 @@ public class DeadlineOrderNext {
 	@Test
 	public void DeadlineOrderThirdCall() {
 
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
 
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2016, 12, 31));
-		Task other = new Task("games", TaskPriority.LOW, LocalDate.of(2015, 12, 31));
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2016, 12, 31));
+		SimpleTask other = new SimpleTask("games", TaskPriority.LOW, LocalDate.of(2015, 12, 31));
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 
 		collection.add(work);
 
@@ -115,11 +115,11 @@ public class DeadlineOrderNext {
 	@Test
 	public void DeadlineOrderNextSameDate() {
 
-		Task school = new Task("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
+		SimpleTask school = new SimpleTask("Studys", TaskPriority.HIGH, LocalDate.of(2017, 12, 31));
 
-		Task work = new Task("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31));
+		SimpleTask work = new SimpleTask("web", TaskPriority.MEDIUM, LocalDate.of(2017, 12, 31));
 
-		ArrayList<Task> collection = new ArrayList<Task>();
+		ArrayList<SimpleTask> collection = new ArrayList<SimpleTask>();
 		int id;
 		if (school.getId() > work.getId()) {
 			id = school.getId();

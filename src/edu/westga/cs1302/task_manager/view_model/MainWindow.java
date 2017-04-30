@@ -18,7 +18,7 @@ import edu.westga.cs1302.task_manager.model.CostOrder;
 import edu.westga.cs1302.task_manager.model.DeadlineOrder;
 import edu.westga.cs1302.task_manager.model.PriorityOrder;
 import edu.westga.cs1302.task_manager.model.Serializer;
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 import edu.westga.cs1302.task_manager.model.TaskIterator;
 import edu.westga.cs1302.task_manager.model.TaskPriority;
 
@@ -54,7 +54,7 @@ public class MainWindow {
 	@FXML
 	private DatePicker deadline;
 
-	private Task currentTask;
+	private SimpleTask currentTask;
 	private Agenda agenda;
 	private Serializer serializer;
 	private TaskIterator taskIterator;
@@ -71,16 +71,16 @@ public class MainWindow {
 	 */
 	@FXML
 	public void onAddTaskClick(ActionEvent event) {
-		this.currentTask = new Task(this.description.getText());
+		this.currentTask = new SimpleTask(this.description.getText());
 		if (this.priority.getSelectionModel().getSelectedItem() != null) {
 			this.getPriorityValue();
-			this.currentTask = new Task(this.description.getText(), this.currentpriority);
+			this.currentTask = new SimpleTask(this.description.getText(), this.currentpriority);
 		}
 		this.dateValidation();
 		if (this.priority.getSelectionModel().getSelectedItem() != null && this.date != null
 				&& !this.date.isBefore(LocalDate.now())) {
 			this.getPriorityValue();
-			this.currentTask = new Task(this.description.getText(), this.currentpriority, this.date);
+			this.currentTask = new SimpleTask(this.description.getText(), this.currentpriority, this.date);
 		}
 		String costof = null;
 		if (!this.cost.getText().isEmpty()) {
@@ -91,7 +91,7 @@ public class MainWindow {
 		if (this.priority.getSelectionModel().getSelectedItem() != null && this.date != null
 				&& !this.date.isBefore(LocalDate.now()) && this.currentcost > 0) {
 			this.getPriorityValue();
-			this.currentTask = new Task(this.description.getText(), this.currentpriority, this.date, this.currentcost);
+			this.currentTask = new SimpleTask(this.description.getText(), this.currentpriority, this.date, this.currentcost);
 		}
 
 		this.agenda.addTask(this.currentTask);
@@ -159,7 +159,7 @@ public class MainWindow {
 	 */
 	@FXML
 	public void taskOrder(ActionEvent event) {
-		ArrayList<Task> newTask = new ArrayList<Task>();
+		ArrayList<SimpleTask> newTask = new ArrayList<SimpleTask>();
 		if (this.order.getSelectionModel().getSelectedIndex() == 0) {
 			this.taskIterator = new PriorityOrder(this.agenda.getAllTask());
 			while (this.taskIterator.hasNext()) {
@@ -198,9 +198,9 @@ public class MainWindow {
 		this.order.getItems().add("DeadLine");
 		this.order.getItems().add("Cost");
 
-		this.currentTask = new Task("task");
+		this.currentTask = new SimpleTask("task");
 
-		ArrayList<Task> itr = new ArrayList<Task>();
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 
 		this.agenda = new Agenda(new PriorityOrder(itr));
 		this.serializer = new Serializer();

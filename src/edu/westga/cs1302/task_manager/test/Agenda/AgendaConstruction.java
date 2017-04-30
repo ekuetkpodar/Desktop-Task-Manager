@@ -10,7 +10,7 @@ import org.junit.rules.ExpectedException;
 
 import edu.westga.cs1302.task_manager.model.Agenda;
 import edu.westga.cs1302.task_manager.model.PriorityOrder;
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 
 public class AgendaConstruction {
 
@@ -19,7 +19,7 @@ public class AgendaConstruction {
 	@Test
 	public void AgendaIsInvalid() {
 	
-		ArrayList<Task> itr = new ArrayList<Task>();
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 	
 		this.expected.expect(IllegalArgumentException.class);
 		Agenda agenda = new Agenda(null);
@@ -31,7 +31,7 @@ public class AgendaConstruction {
 	@Test
 	public void AgendaIsValid() {
 	
-		ArrayList<Task> itr = new ArrayList<Task>();
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		
 		assertTrue(agenda != null);

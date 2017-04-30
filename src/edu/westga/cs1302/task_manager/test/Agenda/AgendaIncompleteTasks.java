@@ -10,7 +10,7 @@ import org.junit.rules.ExpectedException;
 
 import edu.westga.cs1302.task_manager.model.Agenda;
 import edu.westga.cs1302.task_manager.model.PriorityOrder;
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 
 public class AgendaIncompleteTasks {
 
@@ -19,10 +19,10 @@ public class AgendaIncompleteTasks {
 
 	@Test
 	public void AgendaIncompleteTasksIsEmpty() {
-		Task school = new Task("Study");
-		ArrayList<Task> itr = new ArrayList<Task>();
+		SimpleTask school = new SimpleTask("Study");
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 		Agenda agenda = new Agenda(new PriorityOrder(itr));
-		ArrayList<Task> test = null;
+		ArrayList<SimpleTask> test = null;
 
 		assertEquals(test, agenda.incompleteTasks());
 		assertNull(agenda.incompleteTasks());
@@ -31,13 +31,13 @@ public class AgendaIncompleteTasks {
 
 	@Test
 	public void AgendaIncompleteTasksOneInCompleteTask() {
-		Task school = new Task("Study");
+		SimpleTask school = new SimpleTask("Study");
 		school.setCompleted(true);
-		ArrayList<Task> itr = new ArrayList<Task>();
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 
-		ArrayList<Task> test = new ArrayList<Task>();
+		ArrayList<SimpleTask> test = new ArrayList<SimpleTask>();
 		test.add(school);
 
 		assertEquals(null, agenda.incompleteTasks());
@@ -46,13 +46,13 @@ public class AgendaIncompleteTasks {
 
 	@Test
 	public void AgendaIncompleteTasksOneCompleteTask() {
-		Task school = new Task("Study");
+		SimpleTask school = new SimpleTask("Study");
 		school.setCompleted(false);
-		ArrayList<Task> itr = new ArrayList<Task>();
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 
-		ArrayList<Task> test = new ArrayList<Task>();
+		ArrayList<SimpleTask> test = new ArrayList<SimpleTask>();
 
 		test.add(school);
 
@@ -62,21 +62,21 @@ public class AgendaIncompleteTasks {
 
 	@Test
 	public void AgendaIncompleteTasksManyCompleteTask() {
-		Task school = new Task("Study");
-		Task school2 = new Task("Study2");
-		Task school3 = new Task("Study3");
+		SimpleTask school = new SimpleTask("Study");
+		SimpleTask school2 = new SimpleTask("Study2");
+		SimpleTask school3 = new SimpleTask("Study3");
 
 		school.setCompleted(false);
 		school2.setCompleted(false);
 		school3.setCompleted(false);
-		ArrayList<Task> itr = new ArrayList<Task>();
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 
 		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		agenda.addTask(school2);
 		agenda.addTask(school3);
 
-		ArrayList<Task> test = new ArrayList<Task>();
+		ArrayList<SimpleTask> test = new ArrayList<SimpleTask>();
 
 		test.add(school);
 		test.add(school2);
@@ -88,20 +88,20 @@ public class AgendaIncompleteTasks {
 
 	@Test
 	public void AgendaIncompleteTasksOneCompleteTaskInTheMiddle() {
-		Task school = new Task("Study");
-		Task school2 = new Task("Study2");
-		Task school3 = new Task("Study3");
+		SimpleTask school = new SimpleTask("Study");
+		SimpleTask school2 = new SimpleTask("Study2");
+		SimpleTask school3 = new SimpleTask("Study3");
 
 		school.setCompleted(true);
 		school2.setCompleted(false);
 		school3.setCompleted(true);
-		ArrayList<Task> itr = new ArrayList<Task>();
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		agenda.addTask(school2);
 		agenda.addTask(school3);
 
-		ArrayList<Task> test = new ArrayList<Task>();
+		ArrayList<SimpleTask> test = new ArrayList<SimpleTask>();
 
 		test.add(school2);
 
@@ -111,21 +111,21 @@ public class AgendaIncompleteTasks {
 
 	@Test
 	public void AgendaIncompleteTasksOneompleteTaskaTTheEnd() {
-		Task school = new Task("Study");
-		Task school2 = new Task("Study2");
-		Task school3 = new Task("Study3");
+		SimpleTask school = new SimpleTask("Study");
+		SimpleTask school2 = new SimpleTask("Study2");
+		SimpleTask school3 = new SimpleTask("Study3");
 
 		school.setCompleted(true);
 		school2.setCompleted(true);
 		school3.setCompleted(false);
-		ArrayList<Task> itr = new ArrayList<Task>();
+		ArrayList<SimpleTask> itr = new ArrayList<SimpleTask>();
 
 		Agenda agenda = new Agenda(new PriorityOrder(itr));
 		agenda.addTask(school);
 		agenda.addTask(school2);
 		agenda.addTask(school3);
 
-		ArrayList<Task> test = new ArrayList<Task>();
+		ArrayList<SimpleTask> test = new ArrayList<SimpleTask>();
 
 		test.add(school3);
 

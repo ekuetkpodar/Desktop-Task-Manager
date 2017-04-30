@@ -16,7 +16,7 @@ public class DeadlineOrder extends TaskIterator {
 	 * @param tasks
 	 *            The Collection of task
 	 */
-	public DeadlineOrder(ArrayList<Task> tasks) {
+	public DeadlineOrder(ArrayList<SimpleTask> tasks) {
 		super(tasks);
 
 	}
@@ -28,9 +28,9 @@ public class DeadlineOrder extends TaskIterator {
 	 * @see java.util.Iterator#next()
 	 */
 	@Override
-	public Task next() {
-		Task atask = this.tasks.get(0);
-		for (Task task : this.tasks) {
+	public SimpleTask next() {
+		SimpleTask atask = this.tasks.get(0);
+		for (SimpleTask task : this.tasks) {
 			if (task.getDate().isAfter(atask.getDate())) {
 				atask = task;
 			} else if (task.getDate().isEqual(atask.getDate())) {
@@ -38,12 +38,12 @@ public class DeadlineOrder extends TaskIterator {
 			}
 		}
 
-		Task send = atask;
+		SimpleTask send = atask;
 		this.tasks.remove(atask);
 		return send;
 	}
 
-	private Task samePriority(Task current, Task other) {
+	private SimpleTask samePriority(SimpleTask current, SimpleTask other) {
 		if (current.getId() > other.getId()) {
 			return current;
 		} else if (current.getId() < other.getId()) {

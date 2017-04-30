@@ -6,7 +6,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import edu.westga.cs1302.task_manager.model.Task;
+import edu.westga.cs1302.task_manager.model.SimpleTask;
 
 public class TaskConstruction {
 	@Rule public ExpectedException expected = ExpectedException.none();
@@ -15,7 +15,7 @@ public class TaskConstruction {
 	public void testDescriptionIsInvalid() {
 	
 		this.expected.expect(IllegalArgumentException.class);
-		Task school = new Task(null);
+		SimpleTask school = new SimpleTask(null);
 		
 	}
 	
@@ -23,7 +23,7 @@ public class TaskConstruction {
 	public void testTaskIsValid() {
 	
 		String Stuff = "Do School Work";
-		Task school = new Task(Stuff);
+		SimpleTask school = new SimpleTask(Stuff);
 		assertEquals(school.getDescription(),Stuff);
 		
 	}
