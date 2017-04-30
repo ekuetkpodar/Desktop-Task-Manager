@@ -3,6 +3,9 @@ package edu.westga.cs1302.task_manager.model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  * Default Design For The Sorting Classes
  * 
@@ -32,15 +35,14 @@ public abstract class TaskIterator implements Iterator<Task> {
 
 	}
 
-	/**
-	 * Set The Tasks
-	 * 
-	 * @param tasks
-	 *            the tasks to set
+	/**Set The Tasks
+	 * @param tasks the tasks to set
 	 */
 	public void setTasks(ArrayList<Task> tasks) {
 		this.tasks.clear();
 		this.tasks.addAll(tasks);
 	}
+	
+	
 
 }

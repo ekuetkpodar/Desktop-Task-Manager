@@ -63,7 +63,9 @@ public class Task implements Comparable<Task> {
 			throw new IllegalArgumentException("Priority is Invalid");
 		}
 
-		
+		if (priority == null) {
+			throw new IllegalArgumentException(PRIORITY_IS_CANT_BE_NULL);
+		}
 
 		this.description = description;
 		this.id = (new Random()).nextInt(Integer.MAX_VALUE) + 1;
@@ -98,6 +100,10 @@ public class Task implements Comparable<Task> {
 		if (!priority.equals(TaskPriority.HIGH) && !priority.equals(TaskPriority.LOW)
 				&& !priority.equals(TaskPriority.MEDIUM)) {
 			throw new IllegalArgumentException("Priority is Invalid");
+		}
+
+		if (priority == null) {
+			throw new IllegalArgumentException(PRIORITY_IS_CANT_BE_NULL);
 		}
 
 		this.description = description;
@@ -138,7 +144,11 @@ public class Task implements Comparable<Task> {
 				&& !priority.equals(TaskPriority.MEDIUM)) {
 			throw new IllegalArgumentException("Priority is Invalid");
 		}
-		
+
+		if (priority == null) {
+			throw new IllegalArgumentException(PRIORITY_IS_CANT_BE_NULL);
+		}
+
 		if (cost <= 0) {
 			throw new IllegalArgumentException("The Cost Cant Be Less Then 0");
 		}
